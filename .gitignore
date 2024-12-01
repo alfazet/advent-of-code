@@ -14,4 +14,4 @@ Cargo.lock
 *.pdb
 
 # Ignore input files to comply with AoC rules
-input.in
+*.in
