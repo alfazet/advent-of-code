@@ -21,12 +21,6 @@ struct State {
     oob: bool,
 }
 
-impl State {
-    fn new(r: usize, c: usize, heading: Heading, oob: bool) -> Self {
-        State { r, c, heading, oob }
-    }
-}
-
 pub fn solve(input: String) {
     let grid = input
         .lines()
@@ -93,13 +87,18 @@ pub fn solve(input: String) {
         }
     };
 
-    let (r, c) = grid
+    let (start_r, start_c) = grid
         .iter()
         .enumerate()
         .find_map(|(i, row)| { row.iter().position(|tile| *tile == Tile::Start) }.map(|j| (i, j)))
         .unwrap();
 
-    let mut state = State::new(r, c, Heading::North, false);
+    let mut state = State {
+        r: start_r,
+        c: start_c,
+        heading: Heading::North,
+        oob: false,
+    };
     let mut ans = 0;
     let mut vis = vec![vec![false; m]; n];
     loop {

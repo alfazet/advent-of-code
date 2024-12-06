@@ -99,7 +99,12 @@ pub fn solve(input: String) {
         for j in 0..m {
             if grid[i][j] == Tile::Free {
                 grid[i][j] = Tile::Obstacle;
-                let mut state = State { r: start_r, c: start_c, heading: Heading::North, oob: false };
+                let mut state = State {
+                    r: start_r,
+                    c: start_c,
+                    heading: Heading::North,
+                    oob: false,
+                };
                 let mut vis = vec![vec![vec![false; 4]; m]; n];
                 ans += loop {
                     let (r, c) = (state.r, state.c);
