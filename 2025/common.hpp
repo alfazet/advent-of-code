@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <cstring>
 #include <cstdint>
 #include <format>
 #include <fstream>
@@ -7,3 +8,5 @@
 #include <string>
 #include <unordered_set>
 #include <vector>
+#include <utility>
+#include <algorithm>
